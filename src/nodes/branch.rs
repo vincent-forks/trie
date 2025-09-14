@@ -3,7 +3,6 @@ use alloy_primitives::{B256, hex};
 use alloy_rlp::{Buf, BufMut, Decodable, EMPTY_STRING_CODE, Encodable, Header, length_of_length};
 use core::{fmt, ops::Range, slice::Iter};
 
-use alloc::sync::Arc;
 #[allow(unused_imports)]
 use alloc::vec::Vec;
 
@@ -279,7 +278,7 @@ pub struct BranchNodeCompact {
     pub hash_mask: TrieMask,
     /// Collection of hashes associated with the children of the branch node.
     /// Each child hash is calculated by hashing two consecutive sub-branch roots.
-    pub hashes: Arc<Vec<B256>>,
+    pub hashes: Vec<B256>,
     /// An optional root hash of the subtree rooted at this branch node.
     pub root_hash: Option<B256>,
 }
